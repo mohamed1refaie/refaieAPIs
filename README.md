@@ -18,11 +18,6 @@ To Run the Project:
 * Run `php artisan serve`
 #### You can now access your project at localhost:8000
 
-
-## Dependencies
-* [Laravel](https://laravel.com/)
-* [Composer](https://getcomposer.org/)
-
 ## Using the APIs
 
 Check short documantion and run the requests on postman from [here](https://documenter.getpostman.com/view/3845720/RWguwbzs)
@@ -60,3 +55,8 @@ curl --request POST \
   --url 'http://localhost:8000/api/area?token=' \
   --header 'Content-Type: application/json'
   ```
+  
+  
+## Dependencies
+* [Laravel](https://laravel.com/)
+* [Composer](https://getcomposer.org/)
