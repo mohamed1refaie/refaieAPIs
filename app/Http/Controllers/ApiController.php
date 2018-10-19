@@ -45,10 +45,11 @@ class ApiController extends Controller
                 'message' => 'Invalid Email or Password',
             ], 401);
         }
-
+        $user= JWTAuth::user();
         return response()->json([
             'success' => true,
             'token' => $jwt_token,
+            'data' => $user
         ]);
     }
 
