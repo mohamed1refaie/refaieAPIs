@@ -10,29 +10,27 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class ApiController extends Controller
 {
-    public function register(RegisterAuthRequest $request)
+    public function register()
     {
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $lol = $user->save();
-        if(!$lol)return "no";
-        else return"sa7";
-        /*if($user->save())
-        {
+
+        try {
+            $this->validate(request(), [
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6|confirmed'
+            ]);
+            $user = User::create(request(['name', 'email', 'password']));
             return response()->json([
                 'success' => true,
                 'data' => $user
             ], 201);
         }
-        else
-        {
+        catch (\Exception $e){
             return response()->json([
                 'success' => false,
                 'error' => 'User cannot be created',
             ],400);
-        }*/
+        }
 
     }
 
