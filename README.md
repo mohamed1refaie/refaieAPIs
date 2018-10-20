@@ -39,10 +39,12 @@ curl --request POST \
 ### Login
 `[POST] http://localhost:8000/api/register`
 
-```curl --request POST \
+```
+curl --request POST \
   --url http://localhost:8000/api/login \
   --header 'Content-Type: application/json' \
   --data '{"email": "ref@test.com", "password": "123456"}'
+  
   ```
   
   This request returns either an error msg or (jwt_token and the user logged)
@@ -51,9 +53,11 @@ curl --request POST \
   To be able to run this request you have to be logged in first and take the jwt_token and put it in the parms of the request
   `[GET] http://localhost:8000/api/area?token=`
   
-  ```curl --request GET \
+  ```
+curl --request GET \
   --url 'http://localhost:8000/api/area?token=' \
   --header 'Content-Type: application/json'
+  
   ```
   
   
